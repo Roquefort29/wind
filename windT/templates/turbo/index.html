@@ -1,144 +1,109 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block content %}
-  <div class="wrapper row1">
-    <header id="header" class="hoc clear">
-      <div id="logo" class="fl_left">
-        <h1><a href="index.html">WIND</a></h1>
-      </div>
-      <nav id="mainav" class="fl_right">
-        <ul class="clear">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a class="drop" href="#">Pages</a>
-            <ul>
-              <li><a href="pages/gallery.html">Gallery</a></li>
-              <li><a href="pages/full-width.html">Full Width</a></li>
-              <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
-              <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
-              <li><a href="pages/basic-grid.html">Basic Grid</a></li>
-            </ul>
-          </li>
-          <li><a class="drop" href="#">Dropdown</a>
-            <ul>
-              <li><a href="#">Level 2</a></li>
-              <li><a class="drop" href="#">Level 2 + Drop</a>
-                <ul>
-                  <li><a href="#">Level 3</a></li>
-                  <li><a href="#">Level 3</a></li>
-                  <li><a href="#">Level 3</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Level 2</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Link Text</a></li>
-          <li><a href="#">Link Text</a></li>
-        </ul>
-      </nav>
-  </div>
-  <section id="pageintro" class="hoc clear">
+    <div class="bgded overlay" style="background-image:url({% static 'images/demo/backgrounds/01.jpg'%});">
+    <section id="pageintro" class="hoc clear">
     <div>
-      <h2 class="heading">Ultricies nisl</h2>
-      <p>Morbi lacus sapien venenatis id cursus in bibendum eget ligula nunc vitae lacus sit amet sem consequat ullamcorper.</p>
-      <footer><a class="btn" href="#">Vulputate</a></footer>
+      <h2 class="heading">Wind Turbine Model</h2>
+      <footer><a class="btn" href="#">Predict</a></footer>
     </div>
   </section>
 </div>
-<div class="wrapper row2">
-  <section class="hoc container clear">
-    <div class="sectiontitle">
-      <h6 class="heading">Velit id imperdiet</h6>
-      <p>Augue sapien et sapien nunc urna duis eget libero non.</p>
-    </div>
-    <ul class="nospace group services">
-      <li class="one_quarter first">
-        <article><a href="#"><i class="fa fa-3x fa-500px"></i></a>
-          <h6 class="heading font-x1"><a href="#">Lobortis</a></h6>
-          <p>Blandit velit ut sem commodo justo quis erat donec nec est ut sodales</p>
-        </article>
-      </li>
-      <li class="one_quarter">
-        <article><a href="#"><i class="fa fa-3x fa-lastfm"></i></a>
-          <h6 class="heading font-x1"><a href="#">Suscipit</a></h6>
-          <p>Sem scelerisque sem fusce sed ligula id sem suscipit mollis quisque</p>
-        </article>
-      </li>
-      <li class="one_quarter">
-        <article><a href="#"><i class="fa fa-3x fa-puzzle-piece"></i></a>
-          <h6 class="heading font-x1"><a href="#">Vivamus</a></h6>
-          <p>Est enim lacinia lobortis viverra interdum quam sed pharetra</p>
-        </article>
-      </li>
-      <li class="one_quarter">
-        <article><a href="#"><i class="fa fa-3x fa-ravelry"></i></a>
-          <h6 class="heading font-x1"><a href="#">Facilisis</a></h6>
-          <p>Faucibus dui praesent at velit morbi ullamcorper lacus at urna maecenas</p>
-        </article>
-      </li>
-    </ul>
-    <div class="clear"></div>
-  </section>
-</div>
-<div class="wrapper row3">
-  <main class="hoc container clear">
-    <div class="sectiontitle">
-      <h6 class="heading">Eu neque lacinia</h6>
-      <p>Orci ullamcorper posuere nulla facilisi maecenas convallis.</p>
-    </div>
-    <div class="group excerpts">
-      <article class="one_third first">
-        <div class="hgroup">
-          <h6 class="heading">A. Doe</h6>
-          <em>Chief Executive Officer</em></div>
-        <figure><a href="#"><img src="images/demo/320x220.png" alt=""></a></figure>
-        <div class="txtwrap">
-          <p>Est sed tellus nunc hendrerit adipiscing nulla nunc id elit etiam tempus lectus vel posuere congue nunc quam varius lectus.</p>
-        </div>
-        <footer>
-          <ul class="faico clear">
-            <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-            <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a class="faicon-vk" href="#"><i class="fa fa-vk"></i></a></li>
-          </ul>
-        </footer>
-      </article>
-      <article class="one_third">
-        <div class="hgroup">
-          <h6 class="heading">B. Doe</h6>
-          <em>General Manager</em></div>
-        <figure><a href="#"><img src="images/demo/320x220.png" alt=""></a></figure>
-        <div class="txtwrap">
-          <p>At rutrum diam sem sed turpis mauris pede arcu molestie ut scelerisque id tincidunt tincidunt neque proin iaculis mauris eu.</p>
-        </div>
-        <footer>
-          <ul class="faico clear">
-            <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-            <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a class="faicon-vk" href="#"><i class="fa fa-vk"></i></a></li>
-          </ul>
-        </footer>
-      </article>
-      <article class="one_third">
-        <div class="hgroup">
-          <h6 class="heading">C. Doe</h6>
-          <em>Marketing Manager</em></div>
-        <figure><a href="#"><img src="images/demo/320x220.png" alt=""></a></figure>
-        <div class="txtwrap">
-          <p>Sodales cursus sapien erat pharetra justo vitae volutpat eros magna et magna praesent at lectus vestibulum ante ipsum primis.</p>
-        </div>
-        <footer>
-          <ul class="faico clear">
-            <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-            <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a class="faicon-vk" href="#"><i class="fa fa-vk"></i></a></li>
-          </ul>
-        </footer>
-      </article>
-    </div>
+{#<div class="wrapper row2">#}
+{#  <section class="hoc container clear">#}
+{#    <div class="sectiontitle">#}
+{#      <h6 class="heading">Velit id imperdiet</h6>#}
+{#      <p>Augue sapien et sapien nunc urna duis eget libero non.</p>#}
+{#    </div>#}
+{#    <ul class="nospace group services">#}
+{#      <li class="one_quarter first">#}
+{#        <article><a href="#"><i class="fa fa-3x fa-500px"></i></a>#}
+{#          <h6 class="heading font-x1"><a href="#">Lobortis</a></h6>#}
+{#          <p>Blandit velit ut sem commodo justo quis erat donec nec est ut sodales</p>#}
+{#        </article>#}
+{#      </li>#}
+{#      <li class="one_quarter">#}
+{#        <article><a href="#"><i class="fa fa-3x fa-lastfm"></i></a>#}
+{#          <h6 class="heading font-x1"><a href="#">Suscipit</a></h6>#}
+{#          <p>Sem scelerisque sem fusce sed ligula id sem suscipit mollis quisque</p>#}
+{#        </article>#}
+{#      </li>#}
+{#      <li class="one_quarter">#}
+{#        <article><a href="#"><i class="fa fa-3x fa-puzzle-piece"></i></a>#}
+{#          <h6 class="heading font-x1"><a href="#">Vivamus</a></h6>#}
+{#          <p>Est enim lacinia lobortis viverra interdum quam sed pharetra</p>#}
+{#        </article>#}
+{#      </li>#}
+{#      <li class="one_quarter">#}
+{#        <article><a href="#"><i class="fa fa-3x fa-ravelry"></i></a>#}
+{#          <h6 class="heading font-x1"><a href="#">Facilisis</a></h6>#}
+{#          <p>Faucibus dui praesent at velit morbi ullamcorper lacus at urna maecenas</p>#}
+{#        </article>#}
+{#      </li>#}
+{#    </ul>#}
+{#    <div class="clear"></div>#}
+{#  </section>#}
+{#</div>#}
+{#<div class="wrapper row3">#}
+{#  <main class="hoc container clear">#}
+{#    <div class="sectiontitle">#}
+{#      <h6 class="heading">Eu neque lacinia</h6>#}
+{#      <p>Orci ullamcorper posuere nulla facilisi maecenas convallis.</p>#}
+{#    </div>#}
+{#    <div class="group excerpts">#}
+{#      <article class="one_third first">#}
+{#        <div class="hgroup">#}
+{#          <h6 class="heading">A. Doe</h6>#}
+{#          <em>Chief Executive Officer</em></div>#}
+{#        <figure><a href="#"><img src="images/demo/320x220.png" alt=""></a></figure>#}
+{#        <div class="txtwrap">#}
+{#          <p>Est sed tellus nunc hendrerit adipiscing nulla nunc id elit etiam tempus lectus vel posuere congue nunc quam varius lectus.</p>#}
+{#        </div>#}
+{#        <footer>#}
+{#          <ul class="faico clear">#}
+{#            <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>#}
+{#            <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>#}
+{#            <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>#}
+{#            <li><a class="faicon-vk" href="#"><i class="fa fa-vk"></i></a></li>#}
+{#          </ul>#}
+{#        </footer>#}
+{#      </article>#}
+{#      <article class="one_third">#}
+{#        <div class="hgroup">#}
+{#          <h6 class="heading">B. Doe</h6>#}
+{#          <em>General Manager</em></div>#}
+{#        <figure><a href="#"><img src="images/demo/320x220.png" alt=""></a></figure>#}
+{#        <div class="txtwrap">#}
+{#          <p>At rutrum diam sem sed turpis mauris pede arcu molestie ut scelerisque id tincidunt tincidunt neque proin iaculis mauris eu.</p>#}
+{#        </div>#}
+{#        <footer>#}
+{#          <ul class="faico clear">#}
+{#            <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>#}
+{#            <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>#}
+{#            <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>#}
+{#            <li><a class="faicon-vk" href="#"><i class="fa fa-vk"></i></a></li>#}
+{#          </ul>#}
+{#        </footer>#}
+{#      </article>#}
+{#      <article class="one_third">#}
+{#        <div class="hgroup">#}
+{#          <h6 class="heading">C. Doe</h6>#}
+{#          <em>Marketing Manager</em></div>#}
+{#        <figure><a href="#"><img src="images/demo/320x220.png" alt=""></a></figure>#}
+{#        <div class="txtwrap">#}
+{#          <p>Sodales cursus sapien erat pharetra justo vitae volutpat eros magna et magna praesent at lectus vestibulum ante ipsum primis.</p>#}
+{#        </div>#}
+{#        <footer>#}
+{#          <ul class="faico clear">#}
+{#            <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>#}
+{#            <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>#}
+{#            <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>#}
+{#            <li><a class="faicon-vk" href="#"><i class="fa fa-vk"></i></a></li>#}
+{#          </ul>#}
+{#        </footer>#}
+{#      </article>#}
+{#    </div>#}
     <div class="clear"></div>
   </main>
 </div>

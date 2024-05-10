@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Turbine ML Model Development</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/onlyindex.css' %}">
+</head>
+<body>
+    <header class="bg-dark text-light py-4">
+        <div class="container text-center">
+            <h1>Wind Turbine ML Model Development</h1>
+        </div>
+    </header>
+    <main class="container my-5">
+        <section id="data-input">
+            <h2 class="mb-4">Input Data</h2>
+            <div class="form-group">
+                <label for="wind-speed">Wind Speed (m/s):</label>
+                <input type="number" id="wind-speed" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="temperature">Temperature (°C):</label>
+                <input type="number" id="temperature" class="form-control">
+            </div>
+            <button id="predict-power-btn" class="btn btn-primary mr-2">Predict Power Output</button>
+            <button id="detect-faults-btn" class="btn btn-danger">Detect Faults</button>
+        </section>
+        <section id="prediction-result">
+            <h2 class="mb-4">Prediction Result</h2>
+            <p id="prediction-value" class="lead">-</p>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'main/js/script.js' %}"></script>
+</body>
+</html>
+{% endblock %}
