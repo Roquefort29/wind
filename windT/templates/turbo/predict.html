@@ -14,18 +14,16 @@
     <div class="sectiontitle">
       <h6 class="heading">Input Data</h6>
     </div>
-    <div class="form-group">
-      <label for="wind-speed">Wind Speed (m/s):</label>
-      <input type="number" id="wind-speed" class="form-control">
-    </div>
-    <div class="form-group">
-      <label for="temperature">Temperature (°C):</label>
-      <input type="number" id="temperature" class="form-control">
-    </div>
-    <footer>
-      <button id="predict-power-btn" class="btn btn-primary mr-2">Predict Power Output</button>
-      <button id="detect-faults-btn" class="btn btn-danger">Detect Faults</button>
-    </footer>
+    <form id="predict-form" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="data-file">Upload CSV File:</label>
+        <input type="file" id="data-file" name="data_file" class="form-control" required>
+      </div>
+      <footer>
+        <button type="submit" id="predict-power-btn" class="btn btn-primary">Predict Power Output</button>
+      </footer>
+    </form>
   </section>
 </div>
 <div class="wrapper row3">
@@ -33,14 +31,43 @@
     <div class="sectiontitle">
       <h6 class="heading">Prediction Result</h6>
     </div>
-    <div>
+    <div id="prediction-results">
       <p id="prediction-value" class="lead">-</p>
     </div>
     <div class="clear"></div>
   </main>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="{% static 'main/js/script.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#predict-form').on('submit', function(event) {
+      event.preventDefault();
+
+      var formData = new FormData(this);
+
+      $.ajax({
+        url: "{% url 'predict' %}",
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response) {
+          if (response.error) {
+            $('#prediction-value').text('Error: ' + response.error);
+          } else {
+            var predictions = response.predictions;
+            var predictionsHtml = predictions.map(function(prediction, index) {
+              return '<p>Hour ' + (index + 1) + ': ' + prediction + ' kW</p>';
+            }).join('');
+            $('#prediction-value').html(predictionsHtml);
+          }
+        },
+        error: function(xhr, status, error) {
+          console.error(xhr.responseText);
+          $('#prediction-value').text('Error occurred while predicting.');
+        }
+      });
+    });
+  });
+</script>
 {% endblock %}

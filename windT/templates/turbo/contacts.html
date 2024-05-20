@@ -1,1 +1,35 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bgded overlay" style="background-image:url({% static 'images/demo/backgrounds/02.jpg'%});">
+  <section id="pageintro" class="hoc clear" style="padding: 2rem 0;">
+    <div>
+      <h2 class="heading">Contacts</h2>
+    </div>
+  </section>
+</div>
+        <div class="wrapper row2">
+        <section class="hoc container clear">
+            <div class="sectiontitle" style="text-align: center; padding: 10px 0;">
+                <h6 class="heading">About Us</h6>
+                <p>Welcome to our site, dedicated to pioneering the future of renewable energy through the development of advanced machine learning (ML) models for wind turbines. At the forefront of innovation, our team is committed to enhancing the efficiency and reliability of wind energy systems, ensuring a sustainable and green future for all.</p>
+            </div>
+            <div class="nospace group services" style="text-align: center;">
+                <div class="one_quarter first" style="display: inline-block; width: 45%; margin: 5px;">
+                    <h6 class="heading font-x1"><a href="#">Who We Are</a></h6>
+                    <p>We are a group of passionate engineers, data scientists, and renewable energy enthusiasts. Our diverse team brings together expertise from various fields, including mechanical engineering, data analytics, and computer science.</p>
+                </div>
+                <div class="one_quarter" style="display: inline-block; width: 45%; margin: 5px;">
+                    <h6 class="heading font-x1"><a href="#">Our Mission</a></h6>
+                    <p>Our mission is to revolutionize the wind energy sector by leveraging the power of machine learning. We aim to develop state-of-the-art ML models that optimize wind turbine performance, reduce maintenance costs, and maximize energy output.</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </section>
+    </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{% static 'main/js/script.js' %}"></script>
+{% endblock %}

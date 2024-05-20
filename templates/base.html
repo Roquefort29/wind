@@ -30,10 +30,9 @@
       <p> This site was created in order to study the state of wind turbines and future solutions to problems</p>
       <nav>
         <ul class="nospace">
-          <li><a href=""><i class="fa fa-lg fa-home"></i></a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Predict model</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'predict' %}">Predict model</a></li>
+          <li><a href="{% url 'contacts' %}">Contact</a></li>
         </ul>
       </nav>
     </div>
