@@ -142,7 +142,7 @@ def timeseries_to_supervised(data, lag=1):
     df.fillna(0, inplace=True)
     return df.values
 
-def train_lstm(train_scaled, n_epochs=50, n_in=24, n_out=1, n_units=50, lr=0.001):
+def train_lstm(train_scaled, n_epochs=1, n_in=24, n_out=1, n_units=50, lr=0.001):
     lstm = LSTM(n_in, n_out, n_units)
     batch_size = 1
 

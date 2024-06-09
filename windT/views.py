@@ -1,12 +1,11 @@
 import os
 import logging
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from .models import Country, Year, TotalCumulativeInstalledCapacity, GrowthRate
 from django.http import JsonResponse
 from .lstm_model import evaluate_model
 
 logger = logging.getLogger(__name__)
-
 
 def index(request):
     return render(request, 'turbo/index.html')
@@ -44,3 +43,26 @@ def predict(request):
             return JsonResponse({'error': str(e)}, status=500)
 
     return render(request, 'turbo/predict.html')
+
+def country_list(request):
+    countries = Country.objects.all()
+    return render(request, 'turbo/country_list.html', {'countries': countries})
+
+def country_detail(request, country_id):
+    country = get_object_or_404(Country, pk=country_id)
+    total_capacities = TotalCumulativeInstalledCapacity.objects.filter(country=country).order_by('year__year')
+    growth_rates = GrowthRate.objects.filter(country=country).order_by('year__year')
+
+    # Extract data for the charts
+    years = [tc.year.year for tc in total_capacities]
+    capacities = [tc.value for tc in total_capacities]
+    growth_values = [gr.value for gr in growth_rates]
+
+    return render(request, 'turbo/country_detail.html', {
+        'country': country,
+        'total_capacities': total_capacities,
+        'growth_rates': growth_rates,
+        'years': years,
+        'capacities': capacities,
+        'growth_values': growth_values
+    })

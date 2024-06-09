@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countries</title>
+</head>
+<body>
+    <h1>Countries</h1>
+    <ul>
+        {% for country in countries %}
+            <li><a href="{% url 'country_detail' country.id %}">{{ country.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -2,26 +2,31 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-<title>WTDM</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="{% static 'css/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+    <title>WTDM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="{% static 'css/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body id="top">
-<div class="bgded overlay" style="">
-  <div class="wrapper row1">
-    <header id="header" class="hoc clear">
-      <div id="logo" class="fl_left">
-        <h1><a href="index.html">WIND</a></h1>
-      </div>
-      <nav id="mainav" class="fl_right">
-        <ul class="clear">
-          <li class="active"><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'predict' %}">Predict</a></li>
-          <li><a href="{% url 'contacts' %}">Contacts</a></li>
-        </ul>
-      </nav>
-  </div>
+    <div class="bgded overlay" style="">
+        <div class="wrapper row1">
+            <header id="header" class="hoc clear">
+                <div id="logo" class="fl_left">
+                    <h1><a href="index.html">WIND</a></h1>
+                </div>
+                <nav id="mainav" class="fl_right">
+                    <ul class="clear">
+                        <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'predict' %}">Predict</a></li>
+                        <li><a href="{% url 'contacts' %}">Contacts</a></li>
+                        <li><a href="{% url 'country_list' %}">View Countries</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+    </div>
+
     {% block content %} {% endblock %}
 <div class="wrapper row4 bgded overlay">
   <footer id="footer" class="hoc clear">
@@ -30,9 +35,10 @@
       <p> This site was created in order to study the state of wind turbines and future solutions to problems</p>
       <nav>
         <ul class="nospace">
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'predict' %}">Predict model</a></li>
-          <li><a href="{% url 'contacts' %}">Contact</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'predict' %}">Predict model</a></li>
+            <li><a href="{% url 'contacts' %}">Contact</a></li>
+            <li><a href="{% url 'country_list' %}">View Countries</a></li>
         </ul>
       </nav>
     </div>
