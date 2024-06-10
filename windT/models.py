@@ -2,15 +2,15 @@ from django.db import models
 
 class Country(models.Model):
     name = models.CharField(max_length=100)
+    description = models.TextField(default='There is no information yet')
     flag_photo = models.ImageField(upload_to='flags/')
-    country_description = models.TextField(default='No description available')
-    land_area = models.DecimalField(max_digits=15, decimal_places=2)
+    land_area = models.FloatField()
 
     def __str__(self):
         return self.name
 
 class Year(models.Model):
-    year = models.IntegerField(unique=True)
+    year = models.IntegerField()
 
     def __str__(self):
         return str(self.year)
@@ -18,15 +18,15 @@ class Year(models.Model):
 class TotalCumulativeInstalledCapacity(models.Model):
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
     year = models.ForeignKey(Year, on_delete=models.CASCADE)
-    value = models.DecimalField(max_digits=15, decimal_places=2)
+    value = models.FloatField()
 
     def __str__(self):
-        return f"{self.country.name} - {self.year.year} - {self.value}"
+        return f"{self.country.name} - {self.year.year} - {self.value} MW"
 
 class GrowthRate(models.Model):
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
     year = models.ForeignKey(Year, on_delete=models.CASCADE)
-    value = models.DecimalField(max_digits=6, decimal_places=2)
+    value = models.FloatField()
 
     def __str__(self):
-        return f"{self.country.name} - {self.year.year} - {self.value}%"
+        return f"{self.country.name} - {self.year.year} - {self.value} %"

@@ -48,21 +48,24 @@ def country_list(request):
     countries = Country.objects.all()
     return render(request, 'turbo/country_list.html', {'countries': countries})
 
+
 def country_detail(request, country_id):
-    country = get_object_or_404(Country, pk=country_id)
-    total_capacities = TotalCumulativeInstalledCapacity.objects.filter(country=country).order_by('year__year')
-    growth_rates = GrowthRate.objects.filter(country=country).order_by('year__year')
+    country = get_object_or_404(Country, id=country_id)
 
-    # Extract data for the charts
-    years = [tc.year.year for tc in total_capacities]
-    capacities = [tc.value for tc in total_capacities]
-    growth_values = [gr.value for gr in growth_rates]
+    # Get installed capacity and growth rate data
+    years = Year.objects.all().order_by('year')
+    capacities = TotalCumulativeInstalledCapacity.objects.filter(country_id=country.id).order_by('year_id')
+    growth_rates = GrowthRate.objects.filter(country_id=country.id).order_by('year_id')
 
-    return render(request, 'turbo/country_detail.html', {
+    # Prepare data for charts
+    year_labels = [year.year for year in years]
+    capacity_values = [capacity.value for capacity in capacities]
+    growth_values = [growth.value for growth in growth_rates]
+
+    context = {
         'country': country,
-        'total_capacities': total_capacities,
-        'growth_rates': growth_rates,
-        'years': years,
-        'capacities': capacities,
-        'growth_values': growth_values
-    })
+        'years': year_labels,
+        'capacities': capacity_values,
+        'growth_values': growth_values,
+    }
+    return render(request, 'turbo/country_detail.html', context)
