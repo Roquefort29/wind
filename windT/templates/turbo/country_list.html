@@ -1,14 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Countries</title>
-</head>
-<body>
-    <h1>Countries</h1>
-    <ul>
-        {% for country in countries %}
-            <li><a href="{% url 'country_detail' country.id %}">{{ country.name }}</a></li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bgded overlay" style="background-image:url({% static 'images/demo/backgrounds/02.jpg'%});">
+  <section id="pageintro" class="hoc clear" style="padding: 2rem 0;">
+    <div>
+      <h2 class="heading">СOUNTRIES</h2>
+    </div>
+  </section>
+</div>
+<div class="wrapper row2">
+<section class="hoc container clear">
+    <div class="col-12">
+        <ul class="list-group">
+            {% for country in countries %}
+                <li class="list-group-item country-item">
+                    <img src="{{ country.flag_photo.url }}" alt="{{ country.name }} flag" class="flag-photo">
+                    <a href="{% url 'country_detail' country.id %}">{{ country.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+</div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+.list-group-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.list-group-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.list-group-item:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.02);
+}
+
+.bgded {
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-align: center;
+}
+
+.overlay::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#pageintro {
+    padding: 180px 0;
+}
+
+.country-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.country-item a {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.flag-photo {
+	width: 50px;
+	height: auto;
+	margin-right: 10px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+}
