@@ -2,7 +2,7 @@ from django.db import models
 
 class Country(models.Model):
     name = models.CharField(max_length=100)
-    description = models.TextField(default='There is no information yet')
+    country_description = models.TextField(default='There is no information yet')
     flag_photo = models.ImageField(upload_to='flags/')
     land_area = models.FloatField()
 

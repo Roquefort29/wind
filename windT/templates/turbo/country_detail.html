@@ -2,63 +2,76 @@
 {% load static %}
 
 {% block content %}
-<h1>{{ country.name }}</h1>
-<img src="{{ country.flag_photo.url }}" alt="Flag of {{ country.name }}">
-<p>{{ country.country_description }}</p>
-<p>Land Area: {{ country.land_area }} sq km</p>
+<div class="container" style="padding: 20px;">
+    <h1 class="sectiontitle">{{ country.name }}</h1>
+    <div class="content" style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="flex: 1; margin-right: 20px;">
+            <img src="{{ country.flag_photo.url }}" alt="Flag of {{ country.name }}" class="img-responsive" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 10px;">
+        </div>
+        <div style="flex: 2; margin-left: 20px;">
+            <p>{{ country.country_description }}</p>
+            <p><strong>Land Area:</strong> {{ country.land_area }} sq km</p>
+        </div>
+    </div>
 
-<h2>Total Cumulative Installed Capacity</h2>
-<canvas id="capacityChart" width="400" height="200"></canvas>
-
-<h2>Growth Rate</h2>
-<canvas id="growthChart" width="400" height="200"></canvas>
-
-<a href="{% url 'country_list' %}">Back to country list</a>
+    <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+        <div style="flex: 1; margin-right: 20px;">
+            <h2>Total Cumulative Installed Capacity</h2>
+            <canvas id="capacityChart" width="400" height="200"></canvas>
+        </div>
+        <div style="flex: 1; margin-left: 20px;">
+            <h2>Growth Rate</h2>
+            <canvas id="growthChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    var ctxCapacity = document.getElementById('capacityChart').getContext('2d');
-    var capacityChart = new Chart(ctxCapacity, {
-        type: 'line',
-        data: {
-            labels: {{ years|safe }},
-            datasets: [{
-                label: 'Installed Capacity (MW)',
-                data: {{ capacities|safe }},
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+    document.addEventListener('DOMContentLoaded', function() {
+        var ctxCapacity = document.getElementById('capacityChart').getContext('2d');
+        var capacityChart = new Chart(ctxCapacity, {
+            type: 'line',
+            data: {
+                labels: {{ years|safe }},
+                datasets: [{
+                    label: 'Installed Capacity (MW)',
+                    data: {{ capacities|safe }},
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
+        });
 
-    var ctxGrowth = document.getElementById('growthChart').getContext('2d');
-    var growthChart = new Chart(ctxGrowth, {
-        type: 'line',
-        data: {
-            labels: {{ years|safe }},
-            datasets: [{
-                label: 'Growth Rate (%)',
-                data: {{ growth_values|safe }},
-                backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                borderColor: 'rgba(153, 102, 255, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        var ctxGrowth = document.getElementById('growthChart').getContext('2d');
+        var growthChart = new Chart(ctxGrowth, {
+            type: 'line',
+            data: {
+                labels: {{ years|safe }},
+                datasets: [{
+                    label: 'Growth Rate (%)',
+                    data: {{ growth_values|safe }},
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
+        });
     });
 </script>
 {% endblock %}

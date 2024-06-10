@@ -411,3 +411,71 @@ table a, #comments a{background-color:inherit;}
 	#pageintro > div{max-width:none;}
 	#pageintro .heading{font-size:2.2rem;}
 }
+/* Content Area */
+.container {
+    padding: 20px;
+}
+
+/* Section Title */
+.sectiontitle {
+    display: block;
+    max-width: 60%;
+    margin: 0 auto 20px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* Flexbox layout for flag and information */
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+/* Image styles */
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Paragraph styles */
+.content p {
+    margin-bottom: 10px;
+}
+
+/* Flexbox layout for charts */
+.container > .content + div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.container > .content + div > div {
+    flex: 1;
+    margin: 0 20px;
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px 0;
+    background-color: #A2B70D;
+    color: #FFFFFF;
+    border: none;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #8DA409;
+}
+
+/* Canvas styles for charts */
+canvas {
+    margin: 20px 0;
+}
