@@ -10,10 +10,8 @@ logger = logging.getLogger(__name__)
 def index(request):
     return render(request, 'turbo/index.html')
 
-
 def contacts(request):
     return render(request, 'turbo/contacts.html')
-
 
 def predict(request):
     if request.method == 'POST' and request.FILES.get('data_file'):
@@ -47,7 +45,6 @@ def predict(request):
 def country_list(request):
     countries = Country.objects.all()
     return render(request, 'turbo/country_list.html', {'countries': countries})
-
 
 def country_detail(request, country_id):
     country = get_object_or_404(Country, id=country_id)

@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import mean_absolute_error
 
-
 class LSTM:
     def __init__(self, n_in, n_out, n_units, l2_lambda=0.001, grad_clip=1.0):
         self.n_in = n_in
@@ -104,7 +103,6 @@ class LSTM:
     def clip_grads(self, *grads):
         return [np.clip(grad, -self.grad_clip, self.grad_clip) for grad in grads]
 
-
 def preprocess_data(file_path):
     data = pd.read_csv(file_path, index_col="Date/Time")
     data = data.drop(columns=['Wind Direction (°)', 'Wind Speed (m/s)'])
@@ -178,7 +176,9 @@ def make_predictions(lstm, test_scaled, raw_values, min_val, max_val, train_leng
         X, y = test_scaled[i, :-1].reshape(-1, 1), test_scaled[i, -1]
         yhat, h_prev, c_prev, _, _, _, _, _ = lstm.forward(X, h_prev, c_prev)
         yhat = invert_scale(min_val, max_val, yhat.item())
-        yhat = yhat + raw_values[train_length + i]
+        yhat = yhat + raw_values[train_length + i].item()  # Ensure adding scalar value
+        if yhat < 0:
+            yhat = 0
         predictions.append(yhat)
 
     return np.array(predictions)
@@ -188,7 +188,7 @@ def evaluate_model(file_path):
     lstm = train_lstm(train_scaled)
     predictions = make_predictions(lstm, test_scaled, raw_values, min_val, max_val, len(train_scaled))
 
-    actual = raw_values[-168:]
+    actual = raw_values[-168:].flatten()
     mae = mean_absolute_error(actual, predictions)
 
     return mae, actual, predictions
